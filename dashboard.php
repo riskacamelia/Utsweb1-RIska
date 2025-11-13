@@ -1,10 +1,17 @@
 <?php
 session_start();
 
-if( !isset($_SESSION['username']) ) {
+if( !isset($_SESSION['username']) ) 
     header("Location: login.php");
     exit;
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
 }
+
+$kode_barang = ["001", "002", "003", "004", "005"];
+$nama_barang = ["Ayam penyet", "Mie Ayam", "Mie bagladesh", "jus", "es teh"];
+$harga_barang = [15000, 12000, 20000, 5000, 8000];
 ?>
 
 <!DOCTYPE html>
