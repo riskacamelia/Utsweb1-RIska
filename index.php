@@ -1,4 +1,27 @@
+<?php
+session_start();
 
+if( isset($_SESSION['username']) ) {
+    header("Location: dashboard.php");
+    exit;
+}
+
+if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if( $username == 'Riska' && $password == 'Camelia' ) {
+        $_SESSION['username'] = $username;
+        header("Location: dashboard.php");
+        exit;
+    }
+    else {
+        $error = "usernamenya & passwordnya salah";
+    }
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
