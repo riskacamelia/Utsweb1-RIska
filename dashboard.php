@@ -12,6 +12,21 @@ if (!isset($_SESSION['username'])) {
 $kode_barang = ["001", "002", "003", "004", "005"];
 $nama_barang = ["Ayam penyet", "Mie Ayam", "Mie bagladesh", "jus", "es teh"];
 $harga_barang = [15000, 12000, 20000, 5000, 8000];
+
+$beli = [];
+$jumlah = [];
+$total = [];
+$grandtotal = 0;
+
+
+$jumlah_item = rand(1, 5);
+for ($i = 0; $i < $jumlah_item; $i++) {
+    $index = rand(0, 5); 
+    $beli[] = $nama_barang[$index];
+    $jumlah[] = rand(1, 5); 
+    $total[] = $harga_barang[$index] * $jumlah[$i];
+    $grandtotal += $total[$i];
+}
 ?>
 
 <!DOCTYPE html>
